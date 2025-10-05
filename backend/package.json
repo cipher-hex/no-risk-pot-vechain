@@ -23,12 +23,17 @@
     "@nomiclabs/hardhat-ethers": "^2.2.3",
     "@nomiclabs/hardhat-waffle": "^2.0.6",
     "@openzeppelin/contracts": "^4.9.3",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@vechain/sdk-hardhat-plugin": "^1.0.0",
     "chai": "^4.3.7",
     "ethereum-waffle": "^4.0.10",
     "ethers": "^5.7.2",
     "hardhat": "^2.17.1"
   },
   "dependencies": {
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "@vechain/sdk-core": "^2.0.4",
+    "@vechain/sdk-network": "^2.0.4",
+    "@vechain/vechain-kit": "^1.10.2"
   }
 }

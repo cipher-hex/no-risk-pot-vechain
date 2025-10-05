@@ -1,62 +1,57 @@
-require("@nomiclabs/hardhat-waffle");
+require("@nomicfoundation/hardhat-toolbox");
+require("@vechain/sdk-hardhat-plugin");
 require("dotenv").config();
 
-// Handle private key correctly by removing 0x prefix if it exists
-const PRIVATE_KEY = process.env.PRIVATE_KEY || "";
-const SEPOLIA_RPC_URL =
-  process.env.SEPOLIA_RPC_URL || "https://sepolia.infura.io/v3/your-infura-key";
-const FUJI_RPC_URL =
-  process.env.FUJI_RPC_URL || "https://api.avax-test.network/ext/bc/C/rpc";
+// Check if we have a valid private key
+const hasPrivateKey =
+  process.env.VECHAIN_PRIVATE_KEY &&
+  process.env.VECHAIN_PRIVATE_KEY.length === 66; // 0x + 64 hex chars
+  
+
+// Only set accounts if we have a valid key
+const accounts = hasPrivateKey ? [process.env.VECHAIN_PRIVATE_KEY] : undefined;
+
 module.exports = {
-  solidity: "0.8.18",
+  solidity: {
+    version: "0.8.20",
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 200,
+      },
+      evmVersion: "paris",
+    },
+  },
   networks: {
+    vechain_testnet: {
+      url: "https://testnet.vechain.org",
+      ...(accounts && { accounts }),
+      gas: "auto",
+      gasPrice: "auto",
+      timeout: 20000,
+    },
+    vechain_testnet_delegated: {
+      url: "https://testnet.vechain.org",
+      ...(accounts && { accounts }),
+      enableDelegation: true,
+      gasPayer: {
+        gasPayerServiceUrl: "https://sponsor-testnet.vechain.energy/by/269",
+      },
+    },
+    vechain_mainnet: {
+      url: "https://mainnet.vechain.org",
+      ...(accounts && { accounts }),
+      gas: "auto",
+      gasPrice: "auto",
+    },
     hardhat: {
       chainId: 1337,
     },
-    sepolia: {
-      url: SEPOLIA_RPC_URL,
-      accounts: [PRIVATE_KEY],
-      chainId: 11155111,
-    },
-    fuji: {
-      url: "https://avalanche-fuji-c-chain-rpc.publicnode.com",
-      accounts: [PRIVATE_KEY],
-      chainId: 43113,
-    },
-    // add poylgon amoy testnet
-    polygonAmoy: {
-      url: "https://rpc-amoy.polygon.technology",
-      accounts: [PRIVATE_KEY],
-      chainId: 80002,
-    },
-    // add zeta-testnet
-    zeta: {
-      url: "https://zetachain-athens.g.allthatnode.com/archive/evm",
-      accounts: [PRIVATE_KEY],
-      chainId: 7001,
-    },
-    // add sonic-testnet
-    sonic: {
-      url: "https://rpc.testnet.soniclabs.com",
-      accounts: [PRIVATE_KEY],
-      chainId: 14601,
-    },
-    // add somnia testnet
-    somnia: {
-      url: "https://dream-rpc.somnia.network/",
-      accounts: [PRIVATE_KEY],
-      chainId: 50312,
-    },
-    // add vechain testnet
-    vechain: {
-      url: "https://testnet.rpc.vechain.org/",
-      accounts: [PRIVATE_KEY],
-      chainId: 100010,
-    },
   },
   paths: {
-    artifacts: "./artifacts",
-    cache: "./cache",
     sources: "./contracts",
+    tests: "./test",
+    cache: "./cache",
+    artifacts: "./artifacts",
   },
 };

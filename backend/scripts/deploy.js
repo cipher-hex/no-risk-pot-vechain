@@ -7,7 +7,8 @@ async function main() {
   const [deployer] = await hre.ethers.getSigners();
   const balance = await deployer.provider.getBalance(deployer.address);
   console.log(`Deploying with account: ${deployer.address}`);
-  console.log(`Account balance: ${hre.ethers.utils.formatEther(balance)}`);
+  // console.log(`Account balance: ${hre.ethers.utils.formatEther(balance)}`);
+  console.log(`Account balance: ${balance}`);
 
   // Deploy Coin first
   const Coin = await hre.ethers.getContractFactory("Coin");
