@@ -13,7 +13,7 @@ async function main() {
   // Deploy Coin first
   const Coin = await hre.ethers.getContractFactory("Coin");
   const coin = await Coin.deploy();
-  await coin.deployed();
+  await coin.waitForDeployment();
   console.log("Coin deployed to:", coin.address);
 
   // Deploy ZeroLossLottery using the Coin address
@@ -21,7 +21,7 @@ async function main() {
     "ZeroLossLottery"
   );
   const lottery = await ZeroLossLottery.deploy(coin.address);
-  await lottery.deployed();
+  await lottery.waitForDeployment();
   console.log("ZeroLossLottery deployed to:", lottery.address);
 
   // Save the contract addresses to a file that the frontend can access
