@@ -1,27 +1,44 @@
-# No Risk Pot
+### **Project Overview**
 
-## 🔗 Live Website
+**No Risk Pot** is an innovative **DeFi lottery platform** built on **VeChain**, introducing a **no-loss lottery** system where participants can enjoy the thrill of winning without ever losing their principal investment.
 
-- Visit the [live version](https://no-risk-somnia-pot.vercel.app/)
+#### **How It Works**
 
-- Presentation [Click Here](https://youtu.be/Z_vZWt1RLnk)
+Participants purchase lottery tickets using **COIN (a stablecoin)**. The collected funds are then pooled and deployed into VeChain-based liquidity pools or yield-generating strategies through smart contracts. The **interest earned** from these investments is used to fund the lottery prizes, while each participant receives back their **original ticket amount**, ensuring a **zero-risk experience**.
 
-## Project Overview
+#### **Prize Distribution**
 
-No Risk Pot is a revolutionary DeFi lottery platform where users can participate in lottery draws without risking their principal investment. Here's how it works:
+- 🥇 **1st Prize:** 50% of total interest earned
+- 🥈 **2nd Prize:** 30% of total interest earned
+- 💼 **Platform Fee:** 20% of the interest earned goes to the platform owner
 
-1. Users purchase lottery tickets using COIN (a stablecoin).
-2. The platform admin collects all ticket purchases and invests the pooled funds in liquidity pools or yield farming strategies to generate interest.
-3. When a lottery draw occurs, winners are selected and prizes are distributed from the interest earned, not from the principal amount.
-4. **Key differentiator:** All users receive their initial investment back, regardless of whether they win or lose the lottery.
+This model ensures transparency, fairness, and sustainability while making DeFi participation fun and accessible.
 
-### Prize Distribution
+#### **Why Blockchain (VeChain)?**
 
-- 1st Prize: 50% of the total interest earned
-- 2nd Prize: 30% of the total interest earned
-- Platform Fee: 20% of the total interest earned goes to the platform owner
+VeChain’s dual-token system **(VET & VTHO)** and **native smart contract efficiency** make it ideal for **low-cost transactions** and **traceable fund management**. Using VeChain’s transparency and immutability, users can verify ticket purchases, fund usage, and prize distributions directly on-chain, ensuring trust and accountability without intermediaries.
 
-This creates a no-loss lottery system where participants can enjoy the excitement of potentially winning while preserving their capital.
+#### **Real-World Impact**
+
+No Risk Pot encourages broader adoption of DeFi by removing the fear of loss—turning traditional gambling into a **sustainable, trustless savings and rewards system**. It promotes **financial inclusion** and **responsible participation** in decentralized finance while offering a verifiable and transparent entertainment model.
+
+#### **Value Proposition**
+
+- Zero-risk participation model — users never lose their investment.
+- Transparent and automated prize distribution via VeChain smart contracts.
+- Sustainable yield generation from liquidity strategies.
+- Lower gas fees and carbon footprint due to VeChain’s efficient consensus model.
+
+#### **Roadmap & Sustainability**
+
+- **Phase 1:** Smart contract deployment and testnet launch on VeChain.
+- **Phase 2:** Integration with VeChain’s yield-generating protocols.
+- **Phase 3:** Launch of mainnet version with community governance.
+- **Phase 4:** Expansion into multi-chain yield aggregation while maintaining VeChain as the primary chain.
+
+The business model is designed for **long-term sustainability**, with platform fees reinvested into marketing, yield optimization, and ecosystem growth.
+
+---
 
 ## 🖼️ Project Screenshots
 
@@ -117,15 +134,15 @@ frontend/
 
 ### Network
 
-- The dApp targets the Somnia Testnet. If you are on another network, the app will prompt you to switch or add the network automatically.
-- You may need some test COIN on Somnia Testnet to perform transactions.
+- We have tried very hard to deploy on the vechain testnet and mainnet but due to technical errors we were not able to deploy on the vechain testnet and mainnet. So we have deployed the dApp on the Avax Fuji Testnet. If you are on another network, the app will prompt you to switch or add the network automatically.
+- You may need some test COIN on Avax Fuji Testnet to perform transactions.
 
-## 📜 Deployed Contracts (Somnia Testnet)
+## 📜 Deployed Contracts (Avax Fuji Testnet)
 
 Contracts are already deployed. You can verify them on the explorer below:
 
-- Coin: `0x338B6cbF1f4ae67FDc39fE76764738996c95E0af`
-- ZeroLossLottery: `0x934A93F464fDF4B7f60F079F5ccFCA1776b87D7A`
+- Coin: `0xd2Cab77F7A111f77b2113Fb3CA5824db535D63e3`
+- ZeroLossLottery: `0x5e6c03E14002aF759680cd86ad4534D4b8FA0648`
 
 > Note: The frontend reads addresses from `frontend/src/artifacts/addresses.json`.
 
